@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomScaffold extends StatelessWidget {
   final Widget body;
 
-  CustomScaffold({required this.body});
+  const CustomScaffold({Key? key, required this.body}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,17 @@ class CustomScaffold extends StatelessWidget {
 
 Widget _buildShortAppBar(BuildContext context) {
   return Card(
-    margin: EdgeInsets.all(0),
+    margin: const EdgeInsets.all(0),
+    shape: const BeveledRectangleBorder(
+      borderRadius: BorderRadius.only(
+        bottomRight: Radius.circular(16.0),
+      ),
+    ),
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -40,11 +45,6 @@ Widget _buildShortAppBar(BuildContext context) {
           ),
         ),
       ],
-    ),
-    shape: BeveledRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(16.0),
-      ),
     ),
   );
 }
