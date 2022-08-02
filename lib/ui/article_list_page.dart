@@ -6,8 +6,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ArticleListPage extends StatefulWidget {
+  const ArticleListPage({Key? key}) : super(key: key);
+
   @override
-  _ArticleListPageState createState() => _ArticleListPageState();
+  State<ArticleListPage> createState() => _ArticleListPageState();
 }
 
 class _ArticleListPageState extends State<ArticleListPage> {
@@ -25,7 +27,7 @@ class _ArticleListPageState extends State<ArticleListPage> {
       builder: (context, AsyncSnapshot<ArticlesResult> snapshot) {
         var state = snapshot.connectionState;
         if (state != ConnectionState.done) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else {
           if (snapshot.hasData) {
             return ListView.builder(
@@ -37,9 +39,13 @@ class _ArticleListPageState extends State<ArticleListPage> {
               },
             );
           } else if (snapshot.hasError) {
-            return Center(child: Text(snapshot.error.toString()));
+            return Center(
+              child: Material(
+                child: Text(snapshot.error.toString()),
+              ),
+            );
           } else {
-            return Text('');
+            return const Material(child: Text(''));
           }
         }
       },
@@ -49,7 +55,7 @@ class _ArticleListPageState extends State<ArticleListPage> {
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News App'),
+        title: const Text('News App'),
       ),
       body: _buildList(context),
     );
@@ -57,7 +63,7 @@ class _ArticleListPageState extends State<ArticleListPage> {
 
   Widget _buildIos(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
+      navigationBar: const CupertinoNavigationBar(
         middle: Text('News App'),
         transitionBetweenRoutes: false,
       ),
