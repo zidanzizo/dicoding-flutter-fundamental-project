@@ -1,4 +1,5 @@
 import 'package:dicoding_news_app/article.dart';
+import 'package:dicoding_news_app/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -47,8 +48,7 @@ class ArticleDetailPage extends StatelessWidget {
                   ElevatedButton(
                     child: const Text('Read more'),
                     onPressed: () {
-                      Navigator.pushNamed(context, ArticleWebView.routeName,
-                          arguments: article.url);
+                      Navigator.pushNamed(context, ArticleWebView.routeName, arguments: article.url);
                     },
                   ),
                 ],
@@ -70,10 +70,7 @@ class ArticleWebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('News App'),
-      ),
+    return CustomScaffold(
       body: WebView(
         initialUrl: url,
       ),
