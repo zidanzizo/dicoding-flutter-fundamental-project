@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'News App',
+      title: 'News App Cupertino',
       theme: ThemeData(
         colorScheme: Theme.of(context).colorScheme.copyWith(
               primary: primaryColor,
