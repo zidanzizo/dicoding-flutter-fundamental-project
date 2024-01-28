@@ -16,13 +16,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'News App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
         colorScheme: Theme.of(context).colorScheme.copyWith(
               primary: primaryColor,
               onPrimary: Colors.black,
               secondary: secondaryColor,
             ),
+        scaffoldBackgroundColor: Colors.white,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: myTextTheme,
         appBarTheme: const AppBarTheme(elevation: 0),
         elevatedButtonTheme: ElevatedButtonThemeData(
